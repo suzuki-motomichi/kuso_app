@@ -2,7 +2,7 @@
   .flex.flex-col.bg-white.h-screen.shadow-none.sm:shadow-lg.px-8.sm:px-12.w-full.xs:w-full.sm:w-8/12.md:w-7/12.lg:w-7/12.xl:w-2/6.h-screen.sm:h-auto.border-l-4.border-indigo-600.rounded-xl
 
     .text-center.w-full.font-bold.text-3xl.text-gray-600.p-4
-      | 同情される理由を書いてください
+      | これよりニュースが始まります。同情される理由を書いてください
     .w-full.bg-gray-200.my-3.border-2
 
     .grid.place-items-center.mx-auto.md:max-w-md class="w-10/12"
@@ -10,15 +10,15 @@
         = form_with model: @post, local: true do |f|
           = render 'shared/error_messages', object: f.object
           = "店で暴れた理由を書いてください"
-          = f.text_field :post_one, class: "w-full py-2 border-b focus:outline-none focus:border-b-2 focus:border-indigo-500 placeholder-gray-500 placeholder-opacity-50", :placeholder=>"理由1"
+          = f.text_area :post_one, class: "w-full row-5 py-2 border-b focus:outline-none focus:border-b-2 focus:border-indigo-500 placeholder-gray-500 placeholder-opacity-50", :placeholder=>"理由1"
           .mb-5
           br/
           = "奇声を上げた理由を書いてください"
-          = f.text_field :post_two, class: "w-full py-2 border-b focus:outline-none focus:border-b-2 focus:border-indigo-500 placeholder-gray-500 placeholder-opacity-50", :placeholder=>"理由2"
+          = f.text_area :post_two, class: "w-full py-2 border-b focus:outline-none focus:border-b-2 focus:border-indigo-500 placeholder-gray-500 placeholder-opacity-50", :placeholder=>"理由2"
           .mb-5
           br/
           = "多目的トイレを使った理由を書いてください"
-          = f.text_field :post_three, class: "w-full py-2 border-b focus:outline-none focus:border-b-2 focus:border-indigo-500 placeholder-gray-500 placeholder-opacity-50", :placeholder=>"理由3"
+          = f.text_area :post_three, class: "w-full py-2 border-b focus:outline-none focus:border-b-2 focus:border-indigo-500 placeholder-gray-500 placeholder-opacity-50", :placeholder=>"理由3"
           .mb-5
           .flex.flex-col.justify-center
             = f.submit "ヨシ！👉", class: "h-10 px-5 m-2 text-white transition-colors duration-150 bg-indigo-500 rounded-lg focus:shadow-outline hover:bg-indigo-600"

@@ -22,7 +22,8 @@
         br/
         .mb-5
         .mb-5
-          = link_to "https://kuso-news.herokuapp.com/posts/#{@post.id}&text= &hashtags=クソアプリ&lang=ja", title: 'Twitter', target: :_blank, rel: 'noopener noreferrer', class: "mt-5 text-blue-500 rounded-md text-1xl font-medium hover:bg-blue-300 transition duration-300 item" do
+          = link_to "https://twitter.com/share?&url=https://kuso-news.herokuapp.com/posts/#{@post.id}&text=&hashtags=クソアプリ&lang=ja",title: 'Twitter', target: :_blank, rel: 'noopener noreferrer',
+          class: "mt-5 text-blue-500 rounded-md text-1xl font-medium hover:bg-blue-300 transition duration-300 item" do
             p twitterシェア🕊
         .mb-5
         .mb-5
