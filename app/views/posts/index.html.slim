@@ -1,0 +1,16 @@
+.w-full.bg-teal-200.bg-opacity-75.rounded-lg.sahdow-lg.overflow-hidden.flex.flex-col.justify-center.items-center
+  .flex.justify-center.w-full.bg-white.my-5.p-5.rounded-xl.bg-opacity-60
+    .object-center.object-cover.h-auto.w-full
+
+      .text-center.sm:py-6.text-4xl
+        無実の証明
+      .text-center.sm:py-6.text-xl
+        ="〜それでも僕はやってない〜"
+
+      .text-center.sm:py-6
+        = link_to "🆕 ニュ〜する 🆕", new_post_path, class: "underline item-center text-xl text-blue-500 font-serif mb-2"
+
+        .form-group.md:inline-flex.space-y-4.md:space-y-0.w-full.p-4.text-gray-500.items-center
+          .flex.items-center.gap-x-1.text-sm.mx-auto.text-gray-500 俺は無実だ！
+- @posts.each do |post|
+  = render 'post', post: post

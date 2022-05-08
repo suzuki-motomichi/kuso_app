@@ -1,0 +1,47 @@
+.flex.md:flex-row.flex-col.items-start.justify-center.px-6.py-8.w-full
+  .flex.flex-col.bg-white.h-screen.shadow-none.sm:shadow-lg.px-8.sm:px-12.w-full.xs:w-full.sm:w-8/12.md:w-7/12.lg:w-7/12.xl:w-2/6.h-screen.sm:h-auto.border-l-4.border-indigo-600.rounded-xl
+
+    .text-center.w-full.font-bold.text-3xl.text-gray-600.p-4
+      | kusoニュース
+    .w-full.bg-gray-200.my-3.border-2
+    .justify-center.text-center
+      button.mb-5.min-w-auto.w-32.h-10.bg-blue-300.p-2.rounded-none.hover:bg-blue-500.text-white.font-semibold.hover:flex-grow.transition-all.duration-200.ease-in-out onclick="readAloud()"  読み上げる
+
+    .grid.place-items-center.mx-auto.md:max-w-md class="w-10/12"
+      input#text type="hidden" value=" こんばんは、本日のニュースです。今日午前9時ごろ、都内にある立ち飲み屋で「酔っ払いが暴れている」と通報がありました。警察によると「#{@post.post_one}などと供述しており、周辺にいた人達からも「最初からおかしかった。危ないと思っていた」と証言しており、余罪を追求しています。 次のニュースです。昨夜未明、渋谷駅の交番の前で４時間にもわたり奇声を上げていた人物の新証言が警察により明らかになりました。警察によりますと「ヤー！」「パワー！」と言った言葉を交番前で4時間居座り続けていた理由として「#{@post.post_two}」と証言しており、過去にも公務執行妨害で本日、死刑判決されました。 たった今入った情報です。「カムチャッカ半島で恋人が待っている」などとと宣言し、1ヶ月前に網走刑務所から脱獄した犯人が、先程サンリオピューロランドの多目的トイレで捕まったと警察より明らかになりました。犯人は「#{@post.post_three}」と容疑を認めており、インペルダウンレベル６に移送される事が決まりました。"
+
+        .mb-5
+        = "こんばんは、本日のニュースです。"
+        = "今日午前9時ごろ、都内にある立ち飲み屋で「酔っ払いが暴れている」と通報がありました。警察によると「#{@post.post_one}」などと供述しており、周辺にいた人達からも「最初からおかしかった。危ないと思っていた」と証言しており、余罪を追求しています。"
+        .mb-5
+        = "昨夜未明、渋谷駅の交番の前で４時間にもわたり、奇声を上げていた人物の新証言が警察により明らかになりました。警察によりますと「ヤー！」「パワー！」と言った言葉を交番前で4時間居座り続けていた理由として「#{@post.post_two}」と証言しており、過去にも同様の出来事があったため、公務執行妨害で本日、死刑判決されました。"
+        .mb-5
+        = "たった今入った情報です。「カムチャッカ半島で恋人が待っている」などと宣言し、1ヶ月前に網走刑務所から脱獄した犯人が、先程サンリオピューロランドの多目的トイレで捕まったと警察より明らかになりました。犯人は「#{@post.post_three}」と容疑を認めており、インペルダウンレベル６に移送される事が決まりました。"
+        .mb-5
+        = "本日のニュースは以上です。"
+        br/
+        .mb-5
+        .mb-5
+          = link_to "https://twitter.com/share?&url=https://omailly.jp/posts/#{@post.id}&text= &hashtags=クソアプリ&lang=ja", title: 'Twitter', target: :_blank, rel: 'noopener noreferrer', class: "mt-5 text-blue-500 rounded-md text-1xl font-medium hover:bg-blue-300 transition duration-300 item" do
+            p twitterシェア🕊
+        .mb-5
+        .mb-5
+          = link_to "一蘭🍜", posts_path, class: "border-2 border-gray-400 text-black px-4 py-2 rounded-md text-1xl font-medium hover:bg-gray-200 transition duration-300"
+
+javascript:
+  function readAloud() {
+    // テキストを取得
+    const text = document.getElementById("text").value
+  
+    // ブラウザにWeb Speech API Speech Synthesis機能があるか判定
+    if ('speechSynthesis' in window) {
+      // 発言を設定
+      const uttr = new SpeechSynthesisUtterance()
+      uttr.text = text
+      // 発言を再生
+      window.speechSynthesis.speak(uttr)
+  
+    } else {
+      alert('大変申し訳ありません。このブラウザは音声合成に対応していません。')
+    }
+  }
